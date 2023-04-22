@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>폼 만들기 정리</title>
+    </head>
+    <body>
+        <!--웹 페이지에서 사용자가 데이터를 입력하고 서버로 제출(submit)할 때 사용-->
+        <form name="myForm" method="get" action="result.html">
+            <br> 
+            <br>
+            
+            <!-- 폼 요소를 그룹화하는 태그 -->
+            <fieldset>
+
+            <!--그룹의 제목을 지정하는 태그-->
+            <legend>필수입력</legend>
+
+                <!--label for 와 input id 는 같이 써야한다.-->
+                [이름] : <input type="text" name="user_name" id="user_name" placeholder="이름을 입력하세요." autofocus required>
+
+                <!-- 폼 요소와 연결되는 텍스트 그룹을 지정하는 태그 -->
+                <label for="pwd">[비밀번호]</label>
+
+                <!-- 어떤 방식으로 쓸지 정하고, 이름 지정, id 지정, 최대 글자수, 
+                입력해야 하는 위치에 힌트 주는 것, 웹 페이지가 로드될 때 자동으로 선택, 반드시 입력해야 하는 것-->
+                <input type="password" name="user-pwd" id="user_pwd" maxlength="12" placeholder="이름을 입력하세요." autofocus required>
+                <label for="grade">[학년] : </label>
+                
+                <!--사용자가 목록에서 항목을 선택할 수 있는 드롭다운 목록을 생성하는 태그, option은 목록에서 선택 가능한 각 항목을 정의하는 태그-->
+                <select name="grade" id="grade">
+                    <option value="1">1학년</option>
+                    <option value="2">2학년</option>
+                    <option value="3">3학년</option>
+                    <option value="4" selected>4학년</option>
+                </select>
+
+            
+            </fieldset>
+            <br>
+            <br>
+            <fieldset>
+            <legend>선택 입력</legend>
+            [학년] : 
+            <label><input type="radio" name="grade" id="grade" value="1학년" checked>1학년</label>
+            <label><input type="radio" name="grade" id="grade2" value="2학년">2학년</label>
+            <label><input type="radio" name="grade" id="grade3" value="3학년">3학년</label>
+            <label><input type="radio" name="grade" id="grade4" value="4학년">4학년</label>
+            
+
+            <br><br>
+
+            [신청 과목] :
+            <label><input type="checkbox" name="ck_c" id="ck_c"value="C Program">C언어</label>
+            <label><input type="checkbox" name="ck_python" id="ck_python" value="python">파이썬</label>
+            <label><input type="checkbox" name="ck_web" id="ck_web" value="webProgram">웹제작</label>
+            <label><input type="checkbox" name="ck_sw" id="ck_sw" value="swProgram">S/W프로그래밍</label>
+            
+
+            <br><br>
+
+            <label for="grade">[학년] : </label>
+            <!--사용자가 목록에서 항목을 선택할 수 있는 드롭다운 목록을 생성하는 태그, option은 목록에서 선택 가능한 각 항목을 정의하는 태그-->
+            <select name="grade" id="grade">
+                <option value="1">1학년</option>
+                <option value="2">2학년</option>
+                <option value="3">3학년</option>
+                <option value="4" selected>4학년</option>
+            </select>
+            </fieldset>
+
+            <br><br>
+
+            <fieldset>
+                <legend>분화된 텍스트 필드</legend>
+                <label for="user_search">[검색] : </label>
+                <input type="search" name="user_search" id="user_search">
+                <br>
+
+
+                <label for="user_url">[홈페이지 주소] : </label>
+                <input type="url" name="user_url" id="user_url">
+                <br>
+
+                <label for="user_mail">[E-mail] : </label>
+                <input type="email" name="user_mail" id="user_mail">
+
+                <br>
+
+                <label for="user_tel">[전화번호] : </label><!--tel은 전화번호만-->
+                <input type="tel" name="user_tel" id="user_tel">
+            </fieldset>
+
+            <br><br>
+
+
+            <fieldset>
+                <legend>기타</legend>
+                <label for="user_number">주문 갯 수</label>
+                <br>                <input type="number" name="user_number" id="user_number" min="1" max="100" value="1">
+                <br>
+                 
+                1 <input type="range" name="user_ran" id="user_ran" min="1" max="5" valu="1">5
+                <br>
+                <br>
+
+                <label for="user_date">[제출일] : </label>
+                <input type="date" name="user_date" id="user_date">
+                <br>
+                <br>
+
+                <label for="user_time">[제출 시간] : </label>
+                <input type="time" name="user_time" id="user_time" value="09:00">
+                <br>
+                <br>
+
+                <label for="user_color">[선호 색상] : </label>
+                <input type="color" name="user_color" id="user_color">
+                <br>
+                <br>
+
+                <label for="user_info">[자기소개] : </label>
+                <textarea name="user_info" id="user_info" cols="30" rows="5"></textarea>
+
+            </fieldset>
+
+
+            
+            <fieldset>
+                <legend>버튼</legend>
+                <input type="submit" value="전송"><!--submit, reset 은 세트/submit을 누르면 액션으로 감-->
+                <input type="reset" value="다시 입력">
+                <br>
+
+                <input type="button" value="컴퓨터 공학부" onclick="javascript:window.open('https://computer.silla.ac.kr')">
+                <br><br>
+
+                <input type="hidden" name="emailchk" value="N">
+            </fieldset>
+             
+
+        </form>
+    </body>
+</html>
